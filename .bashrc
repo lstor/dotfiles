@@ -42,13 +42,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# run twolfson/sexy-bash-prompt if it's installed ...
-if [ -x ~/.bash_prompt ]; then
-    . ~/.bash_prompt
-# ... otherwise install it.
-else
-    (cd /tmp && git clone --depth 1 https://github.com/twolfson/sexy-bash-prompt && cd sexy-bash-prompt && make install) && source ~/.bashrc
-fi
+# Set powerline location
+export POWERLINE_ROOT=$(pip show powerline-status | grep Location | awk '{ print $2 }')
 
 # other aliases
 alias cfg='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
