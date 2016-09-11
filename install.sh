@@ -41,7 +41,7 @@ function main() {
 
     pinfo "Updating Vim plugins ..." -n
     if ping -qc 1 github.com > /dev/null; then
-        #vim +PluginUpdate +qall
+        vim +PluginUpdate +qall
         ok
     else
         echo
@@ -82,7 +82,7 @@ function move_files() {
             if confirm; then
                 install_file "$file" "$file"
             else
-                install_file "$file" new-"$file"
+                install_file "$file" "$file"-new
             fi
         else
             install_file "$file" "$file"
