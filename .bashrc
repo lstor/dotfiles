@@ -31,6 +31,11 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# other aliases
+alias d="docker"
+alias cfg='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias cfg_install='curl -Lks http://bit.do/dotfiles-lstor | /bin/bash'
+
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # enable programmable completion features
@@ -42,10 +47,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Set powerline location
-export POWERLINE_ROOT=$(pip show powerline-status | grep Location | awk '{ print $2 }')
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. ${POWERLINE_ROOT}/bindings/bash/powerline.sh
 
-# other aliases
-alias cfg='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias cfg_install='curl -Lks http://bit.do/cfg-lstor | /bin/bash'
+## Set powerline location
+# NOTE: This should be set by the installer program. If it hasn't been, run the
+# commented command below and add its result to .bashrc.
+#export POWERLINE_ROOT=$(pip show powerline-status | grep Location | awk '{ print $2 }')/powerline
 
