@@ -33,7 +33,12 @@ function main() {
     rm -rf $HOME/.dotfiles-install
     ok
 
-    pinfo "Sourcing .bashrc ..." -n
+    pinfo "Adding powerline location to .bashrc ..." -n
+    powerline_location=$(pip show powerline-status | grep Location | awk '{ print $2 }')
+    echo "export POWERLINE_ROOT=${powerline_location}/powerline" >> $HOME/.bashrc
+    ok
+
+    pinfo "Sourcing .bashrc in case it affects vim operations ..." -n
     source ~/.bashrc
     ok
 
