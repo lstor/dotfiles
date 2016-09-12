@@ -2,8 +2,8 @@
 	email = lars@lstor.me
 	name = lstor
 [core]
-	editor = gvim -f '+startinsert'
-	autocrlf = input
+	editor = vim -f '+startinsert'
+	autocrlf = false
 [push]
 	default = simple
 [credential]
