@@ -47,18 +47,23 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Allow local overrides
+source .bashrc.local
+
+# NOTE: Powerline location should be set by the installer program and added to
+# .bashrc.local, which is sourced below. If it hasn't been, run the commented
+# command below and add its result to '.bashrc.local':
+#export POWERLINE_ROOT=$(pip show powerline-status | grep Location | awk '{ print $2 }')/powerline
+
 # Try to find Powerline if we've just installed it.
 if [ -z $POWERLINE_ROOT ]; then
     POWERLINE_ROOT=$(pip show powerline-status | grep Location | awk '{ print $2 }')/powerline
 fi
 
+# This must be *after* local changes to allow for local variations on
+# POWERLINE_ROOT
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . ${POWERLINE_ROOT}/bindings/bash/powerline.sh
-
-## Set powerline location
-# NOTE: This should be set by the installer program. If it hasn't been, run the
-# commented command below and add its result to .bashrc.
-#export POWERLINE_ROOT=$(pip show powerline-status | grep Location | awk '{ print $2 }')/powerline
 
