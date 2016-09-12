@@ -96,6 +96,8 @@ function move_files() {
 }
 
 function install_file() {
+    # TODO: Consider using -b --suffix=new
+    mkdir -p `dirname $HOME/"$2"`
     mv -v $HOME/.dotfiles-install/"$1" $HOME/"$2"
 }
 
