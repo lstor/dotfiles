@@ -75,7 +75,7 @@ function check_if_already_installed() {
 function platform_independent_install() {
     if has "pacman"; then
         pinfo "Pacman found, using that as installer"
-        sudo pacman -Syq --needed git python python-pip tmux vim
+        sudo pacman -Syq --needed git python python-pip tmux
     else
         pwarn "No suitable installer found!"
     fi
