@@ -47,6 +47,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Try to find Powerline if we've just installed it.
+if [ -z $POWERLINE_ROOT ]; then
+    POWERLINE_ROOT=$(pip show powerline-status | grep Location | awk '{ print $2 }')/powerline
+fi
+
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
