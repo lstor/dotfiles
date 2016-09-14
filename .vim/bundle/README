@@ -1,0 +1,5 @@
+Vundle-installed plugins are installed here.
+
+The plugins themselves are not tracked by the repository. Run :BundleInstall to
+install plugins.
+

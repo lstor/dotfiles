@@ -1,0 +1,29 @@
+###############################################################################
+#                         Snippets for all file types                         #
+###############################################################################
+
+global !p
+def complete(t, opts):
+    if t:
+        opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+    if len(opts) == 1:
+        return opts[0]
+    return "(" + "|".join(opts) + ")"
+endglobal
+
+snippet idag "Insert daily notes" !b
+Fra: ${1:08.00}
+Til: Slutt
+
+I dag har jeg gjort:
+ - ${2:<item>}
+
+endsnippet
+
+snippet model "Set modeline for snippets files" b
+# vim:ft=snippets:
+
+endsnippet
+
+# vim:ft=snippets:
+

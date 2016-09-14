@@ -1,0 +1,88 @@
+snippet def "Define Elixir function"
+def ${1:name} do
+	${0:# TODO: def-body}
+end
+endsnippet
+
+snippet defp "Define private Elixir function"
+defp ${1:name} do
+	${0:# TODO: def-body}
+end
+endsnippet
+
+snippet defl "Define one-line Elixir function"
+def ${1:name}, do: ${0:# TODO: def-body}
+endsnippet
+
+snippet defpl "Define private one-line Elixir function"
+defp ${1:name}, do: ${0:# TODO: def-body}
+endsnippet
+
+snippet fn "Elixir anonymous function"
+fn ${1:args} -> ${2:body} end
+endsnippet
+
+snippet for "Elixir for-comprehension"
+for ${1:var} <- ${2:collection} do
+	${0:# TODO: for-body}
+end
+endsnippet
+
+snippet if "Elixir if statement"
+if ${1:condition} do
+	${2:# TODO: if-body}
+${3:else
+	${4:# TODO: else-body}}
+end
+endsnippet
+
+snippet imp "Import Elixir module"
+import ${1:ModuleName}
+endsnippet
+
+snippet inp "String interpolation" w
+#{${0:variable}}
+endsnippet
+
+snippet macro "Define Elixir macro"
+defmacro ${1:name} do
+	${0:# TODO: macro-body}
+end
+endsnippet
+
+snippet mod "Define Elixir module"
+defmodule ${1:Name} do
+	${0:# TODO: module-body}
+end
+endsnippet
+
+snippet puts "Print string"
+IO.puts "${0:Hello, world!}"
+endsnippet
+
+snippet quo "Quote Elixir code"
+quote do
+	${0:# TODO: quote-body}
+end
+endsnippet
+
+snippet quol "Quote one-line Elixir code"
+quote do: ${0:# TODO: quote-body}
+endsnippet
+
+snippet quob "Quote Elixir code"
+quote ${1:bind_quoted: [$2]} do
+	${0:# TODO: quote-body}
+end
+endsnippet
+
+snippet test "ExUnit test case" b
+test "that ${1:description}" do
+	${2:assert $0}
+end
+endsnippet
+
+snippet unq "Unquote Elixir expression" w
+unquote(${1:expression})
+endsnippet
+
