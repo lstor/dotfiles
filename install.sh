@@ -43,6 +43,9 @@ function main() {
     source ~/.bashrc
     ok
 
+    pinfo "Installing Vundle ..."
+    git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+
     # TODO: symlink _vimrc on windows
 
     pinfo "Updating Vim plugins ..." -n
