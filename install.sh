@@ -79,6 +79,9 @@ function platform_independent_install() {
     if has "pacman"; then
         pinfo "Pacman found, using that as installer"
         sudo pacman -Syq --needed git python python-pip tmux
+    elif has "apt"; then
+        pinfo "Apt found, using that as installer"
+        sudo apt install git python python-pip vim tmux
     else
         pwarn "No suitable installer found!"
     fi
