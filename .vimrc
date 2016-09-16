@@ -238,7 +238,7 @@ let g:gitgutter_realtime = 0
 let g:gundo_prefer_python3 = 1
 
 " Ultisnips:
-let g:UltiSnipsUsePythonVersion = 3
+let g:UltiSnipsUsePythonVersion = 2
 
 " }}
 
