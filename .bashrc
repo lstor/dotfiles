@@ -33,8 +33,12 @@ alias egrep='egrep --color=auto'
 
 # other aliases
 alias d="docker"
+alias h="history"
 alias cfg='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cfg_install='curl -Lks http://bit.do/dotfiles-lstor | /bin/bash'
+
+# ssh aliases
+alias lambda="ssh lstor@lambda.lstor.me"
 
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
