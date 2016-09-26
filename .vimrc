@@ -88,6 +88,7 @@ Plugin 'lrvick/Conque-Shell'
 Plugin 'majutsushi/tagbar'
 Plugin 'mattn/emmet-vim'
 Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
@@ -269,12 +270,15 @@ elseif has("win32")
 endif
 
 " Unused leader mappings:
-"  bc e g ijkl  opqrs uvw yz
+"   c e g ijkl  opqrs uvw yz
 " ABCDE G IJKLMNOPQRSTUVWXYZ
 " 0123456789!"#$%&/()=?-_*@
 
 " Redo paste properly
 nnoremap <silent> <Leader>a u:set paste<CR>.:set nopaste<CR>gi
+
+" Edit .vimrc
+nnoremap <silent> <Leader>b :e! ~/.bashrc<CR>
 
 " Execute my program
 nnoremap <silent> <Leader>d :Dispatch<CR>
