@@ -224,6 +224,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " CtrlP:
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " DelimitMate:
 let delimitMate_quotes = ""
