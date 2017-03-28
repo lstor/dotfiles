@@ -397,6 +397,13 @@ augroup gitcommit_filetype
   autocmd!
   au FileType gitcommit :set cc=51,72
 augroup end
+
+augroup go_filetype
+  autocmd!
+  " auto-format go code
+  au FileType go :setl listchars=tab:\ \ ,trail:·
+  au FileType go :setl noexpandtab sts=4 sw=4 ts=4
+augroup end
 " }}
 
 " -----------------------------------------------------------------------------
