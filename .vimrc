@@ -229,6 +229,8 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " DelimitMate:
+" remove <> from DelimitMate,<:>
+let delimitMate_matchpairs = "(:),[:],{:}"
 let delimitMate_quotes = ""
 
 " EasyMotion:
