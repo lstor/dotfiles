@@ -32,6 +32,7 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 export PATH=$PATH:~/bin
+export GOPATH=$HOME/src/go
 #
 # }}
 
