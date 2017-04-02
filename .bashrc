@@ -65,6 +65,7 @@ alias cfg_install='curl -Lks http://bit.do/dotfiles-lstor | /bin/bash'
 
 # ssh aliases
 alias lambda="ssh lstor@lambda.lstor.me"
+alias vtable="ssh lstor@vtable.lstor.me"
 #
 # }}
 
