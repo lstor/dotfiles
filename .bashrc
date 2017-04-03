@@ -86,7 +86,7 @@ fi
 
 ### Local overrides {{
 # Allow local overrides
-source .bashrc.local
+source ~/.bashrc.local
 # }}
 
 
