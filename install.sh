@@ -6,6 +6,11 @@ CLEAR="\e[0m";
 TRUE=0
 FALSE=1
 
+# Fallback if HOME isn't set. Then we're probably in /root... hopefully.
+if [ -z "$HOME" ]; then
+    HOME=`pwd`
+fi
+
 arg_force=$1
 
 function main() {
