@@ -62,6 +62,7 @@ alias d="docker"
 alias h="history"
 alias cfg='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cfg_install='curl -Lks http://bit.do/dotfiles-lstor | /bin/bash'
+alias vim_pluginupdate='vim +PluginUpdate +qall'
 
 # ssh aliases
 alias lambda="ssh lstor@lambda.lstor.me"
