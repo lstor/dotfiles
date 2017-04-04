@@ -50,7 +50,7 @@ function main() {
 
     pinfo "Updating Vim plugins ..." -n
     if ping -qc 1 github.com > /dev/null; then
-        vim +PluginUpdate +qall
+        #vim +PluginUpdate +qall
         ok
     else
         echo
