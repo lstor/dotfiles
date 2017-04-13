@@ -51,6 +51,10 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+alias lsop="lsof -Pnl +M -i4"
+alias lsopdns="lsof -Pl +M -i4"
+alias lsop6="lsof -Pnl +M -i6"
+
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 #
 # }}
