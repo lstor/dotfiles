@@ -494,7 +494,10 @@ endif
 
 " }}
 
-lcd ~
+if has("win32")
+  lcd ~
+endif
+
 let g:vimrc_loaded = 1
 
 " vim:fdm=marker:fmr={{,}}:fcl=all:fdl=0:ts=2:sw=2:sts=2:
