@@ -147,7 +147,7 @@ end
 " ----------
 
 "set shortmess=a0stT
-set autochdir                   " cd to dir of current file
+set noautochdir                 " cd to dir of current file
 set autoindent                  " indenting
 set autoread                    " automatically re-read when file is changed
 set backspace=indent,eol,start  " smart backspacing
