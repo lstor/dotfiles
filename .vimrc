@@ -137,7 +137,7 @@ syntax match vimSynType /^set .*/
 syntax on                       " use syntax highlighting
 
 " Avoid resizing existing windows
-if !exists('g:vimrc_loaded')
+if !exists('g:vimrc_loaded') && !has('nvim')
   set lines=25 columns=108
 end
 " }}
@@ -478,6 +478,22 @@ if has("gui_running")
     set guifont=Inconsolata:h15
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h15
   endif
+endif
+" }}
+
+" -----------------------------------------------------------------------------
+
+" Nvim: {{
+if has('nvim')
+  :tnoremap <Esc> <C-\><C-n>
+  :tnoremap <A-h> <C-\><C-n><C-w>h
+  :tnoremap <A-j> <C-\><C-n><C-w>j
+  :tnoremap <A-k> <C-\><C-n><C-w>k
+  :tnoremap <A-l> <C-\><C-n><C-w>l
+  :nnoremap <A-h> <C-w>h
+  :nnoremap <A-j> <C-w>j
+  :nnoremap <A-k> <C-w>k
+  :nnoremap <A-l> <C-w>l
 endif
 " }}
 
