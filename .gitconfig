@@ -9,16 +9,27 @@
 [credential]
 	helper = cache --timeout=28800
 [alias]
+	; Trivial convenience shortcuts
 	br = branch
 	ci = commit
 	co = checkout
-	lc = log ORIG_HEAD.. --stat --no-merges
-	ll = log --color --graph --pretty=format:\"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset\"
 	ri = rebase --interactive
 	st = status
+	unstage = reset HEAD
+
+	; 'Squash unpushed'
+	squ = rebase --interactive origin/HEAD
+	lc = log ORIG_HEAD.. --stat --no-merges
+	; Nice logging
+	ll = log --color --graph --pretty=format:\"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset\"
+	; As above but with -n 10
+	last = log --color --graph --pretty=format:\"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset\" -n 10
+
+	; Query helpers
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
 	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+	; Find commits that start with <pattern>
 	abbr = "!sh -c 'git rev-list --all | grep ^$1 | while read commit; do git --no-pager log -n1 --pretty=format:\"%H %ci %an %s%n\" $commit; done' -"
-	unstage = reset HEAD
+
+	; Use diff-so-fancy
 	dif = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
-	squ = rebase --interactive origin/HEAD
