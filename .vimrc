@@ -69,6 +69,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " original repos on github
 "Plugin 'airblade/vim-gitgutter'
+
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Raimondi/delimitMate'
@@ -84,7 +85,6 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'kana/vim-textobj-line'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kien/ctrlp.vim'
-Plugin 'lrvick/Conque-Shell'
 Plugin 'majutsushi/tagbar'
 Plugin 'mattn/emmet-vim'
 Plugin 'michaeljsmith/vim-indent-object'
