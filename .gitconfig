@@ -22,8 +22,9 @@
 	lc = log ORIG_HEAD.. --stat --no-merges
 	; Nice logging
 	ll = log --color --graph --pretty=format:\"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset\"
-	; As above but with -n 10
-	last = log --color --graph --pretty=format:\"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset\" -n 10
+	; Feat. convenience
+	last = !git ll -n 10
+	unp = !git ll origin/HEAD..
 
 	; Query helpers
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
