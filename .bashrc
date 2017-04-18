@@ -64,6 +64,10 @@ alias cfg='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cfg_install='curl -Lks http://bit.do/dotfiles-lstor | /bin/bash'
 alias vim_pluginupdate='vim +PluginUpdate +qall'
 
+if hash nvim 2>/dev/null; then
+  alias vim=nvim
+fi
+
 # ssh aliases
 alias vtable="ssh lstor@vtable.lstor.me"
 #
