@@ -16,7 +16,7 @@ if has("win32")
   scriptencoding latin1
 endif
 
-let mapleader = "ø"
+let mapleader = ";"
 
 " Make some buttons more feasible on scandinavian keyboards
 " n - normal mode, x - visual mode, o - operator pending mode
@@ -309,6 +309,9 @@ nnoremap <silent> <Leader>H :set hls!<CR>
 " Set spaces for indentation
 nnoremap <silent> <Leader>i :call SetIndentation()<CR>
 
+" Easily change leader
+nnoremap <silent> <Leader>l :call SetLeader()<CR>
+
 " Call Make
 nnoremap <silent> <Leader>m :Make<CR>
 
@@ -450,6 +453,17 @@ function! SetIndentation()
   else
     set expandtab sts=4 sw=4
 
+  endif
+endfunction
+
+function! SetLeader()
+  let choices = "&US layout\n&EU layout"
+  let choice = confirm("Set leader to ...", choices)
+
+  if choice == 1
+    let mapleader = ';'
+  else
+    let mapleader = 'ø'
   endif
 endfunction
 " }}
