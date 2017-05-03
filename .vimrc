@@ -11,6 +11,8 @@
 " Issues: If you have any problems or issues, please report them at the issue
 " tracker on github. Make sure to note which OS and Vim version you are using.
 
+set nocompatible " vim is 'vi improved' for a reason...
+
 " Latin1_Keys: {{
 if has("win32")
   scriptencoding latin1
@@ -56,8 +58,6 @@ setl fileencoding=utf-8
 setl fileencodings=utf-8,latin1,default
 
 " }}
-
-set nocompatible " vim is 'vi improved' for a reason...
 
 " Vundle: {{
 filetype off
