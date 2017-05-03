@@ -1,7 +1,5 @@
-" Author: Lars Storjord
-" Contact: lars@lstor.me
-" Website: http://lstor.me
-" Repository: https://github.com/lstor/vimfiles-lstor
+" Author: lstor <lstor@users.noreply.github.com>
+" Repository: https://github.com/lstor/dotfiles
 "
 " Note: If you get an error message about swapfiles or backup files, make sure
 " the directories ~/.vim/backup and ~/.vim/tmp exist. See set directory and set
@@ -11,7 +9,7 @@
 " Issues: If you have any problems or issues, please report them at the issue
 " tracker on github. Make sure to note which OS and Vim version you are using.
 
-set nocompatible " vim is 'vi improved' for a reason...
+set nocompatible " not really needed, but just in case we use ancient Vim
 
 " Latin1_Keys: {{
 if has("win32")
@@ -121,19 +119,26 @@ end
 " Options: {{
 " ----------
 
+" Note: Comments below usually explain what the 'set' version of boolean
+" options do.  So 'set noautochdir' is explained with 'cd to current file' even
+" though the setting is turned *off*.
+
 "set shortmess=a0stT
-set noautochdir                 " cd to dir of current file
-set autoindent                  " indenting
+set noautochdir                 " cd to current file
+set autoindent                  " copy indent from current line on newline
 set autoread                    " automatically re-read when file is changed
 set backspace=indent,eol,start  " smart backspacing
-set nobackup                    " don't make backup
-set backupdir=~/.vim/backup     " directory for backups
-set bg=dark                     " used with color scheme
+set nobackup                    " make backup files
+set backupdir+=~/.vim/backup    " directory for backups
+set bg=dark                     " used with color scheme, light/dark
+set browsedir=current           " dir to use for file browser
 set cindent                     " indenting
 set clipboard+=unnamed          " share windows clipboard
-set colorcolumn=80,100          " Highlight right margins
-set nocopyindent                " follow previous indent level
-set cpoptions=aABceFsq          " compatibility options, rtfm
+set colorcolumn=+1,100          " highlight tw=1 and column 100
+set conceallevel=2              " hide concealed text unless replaced
+set noconfirm                   " ask if :q etc. should write to file
+set cpoptions=aABceFsqZ         " compatibility options, rtfm
+set cryptmethod=blowfish2       " use slightly less obsolete crypto
 set nocursorcolumn              " highlight current column
 set nocursorline                " underline the current line
 set directory=~/.vim/tmp        " directory for swapfiles
@@ -142,8 +147,9 @@ set expandtab                   " convert tabs to spaces
 set noexrc                      " use local version of .(g)vimrc, .exrc
 set fileformats=unix,dos        " LF all the way, baby
 set fileformat=unix             " ------ '' ------
-set foldenable                  " not quite sure...
-set foldlevel=100               " don't have anything folded at the beginning
+set foldclose=all               " auto-close folds beyond current foldlevel
+set nofoldenable                " start with folds open (toggle with zi)
+set foldlevel=0                 " initial fold-level (0 = all closed)
 set formatoptions+=ro
 set hidden                      " allow implicit hidden buffers
 set history=50                  " remember 50 commands
@@ -163,14 +169,15 @@ set mouse=a                     " enable mouse
 set number                      " line numbers
 set report=0                    " report changes via :...
 set ruler                       " status bar
-set scrolloff=5                 " scroll at this distance from top/bottom
+set scrolloff=2                 " scroll at this distance from top/bottom
 set shiftround                  " be clever with tabs
 set shiftwidth=4                " used with autoindenting
 set showbreak=                  " dont indicate long lines
 set showcmd                     " show current command
 set showmatch                   " show matching parenthesis
 set showmode                    " show current mode (insert etc.)
-set sidescrolloff=5             " scroll at this distance from left/right (?)
+set sidescroll=1                " minimal number of columns to scroll
+set sidescrolloff=5             " minimum columns of context to show
 set smartcase                   " ignore case except when.. uh, :help smartcase
 set smartindent                 " indenting
 set smarttab                    " indenting
@@ -195,31 +202,69 @@ set nowrap                      " wrap text around
 
 " Plugin_configuration: {{
 
-" Airline:
+" Airline: {{
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
+" }}
 
-" CtrlP:
+" CtrlP: {{
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" }}
 
-" DelimitMate:
+" DelimitMate: {{
 " remove <> from DelimitMate,<:>
 let delimitMate_matchpairs = "(:),[:],{:}"
 let delimitMate_quotes = ""
+" }}
 
-" EasyMotion:
+" EasyMotion: {{
 let g:EasyMotion_leader_key = '<Leader><Leader>'
+" }}
 
-" Gitgutter:
+" Gitgutter: {{
 " Disable gitgutter realtime to fix bug.
 let g:gitgutter_realtime = 0
+" }}
 
-" Gundo:
+" Gundo: {{
 let g:gundo_prefer_python3 = 1
+" }}
 
-" Ultisnips:
+" Tagbar: {{
+let g:tagbar_type_go = {
+  \ 'ctagstype' : 'go',
+  \ 'kinds'     : [
+    \ 'p:package',
+    \ 'i:imports:1',
+    \ 'c:constants',
+    \ 'v:variables',
+    \ 't:types',
+    \ 'n:interfaces',
+    \ 'w:fields',
+    \ 'e:embedded',
+    \ 'm:methods',
+    \ 'r:constructor',
+    \ 'f:functions'
+  \ ],
+  \ 'sro' : '.',
+  \ 'kind2scope' : {
+    \ 't' : 'ctype',
+    \ 'n' : 'ntype'
+  \ },
+  \ 'scope2kind' : {
+    \ 'ctype' : 't',
+    \ 'ntype' : 'n'
+  \ },
+  \ 'ctagsbin'  : 'gotags',
+  \ 'ctagsargs' : '-sort -silent'
+  \ }
+" }}
+
+" Ultisnips: {{
+let g:UltiSnipsExpandTrigger = "<C-j>"
 let g:UltiSnipsUsePythonVersion = 3
+" }}
 
 " }}
 
@@ -249,22 +294,28 @@ elseif has("win32")
   inoremap jj <Esc>
 endif
 
-" Unused leader mappings:
-"   c e g ijkl  opqrs uvw yz
-" ABCDE G IJKLMNOPQRSTUVWXYZ
+" Possible leader mappings:
+" abcdefghijklmnopqrstuvwxyz
+" ABCDEFGHIJKLMNOPQRSTUVWXYZ
 " 0123456789!"#$%&/()=?-_*@
+"
+" Use :map <leader> to show current mappings with <leader>.
 
 " Redo paste properly
 nnoremap <silent> <Leader>a u:set paste<CR>.:set nopaste<CR>gi
 
-" Edit .vimrc
-nnoremap <silent> <Leader>b :e! ~/.bashrc<CR>
-
 " Execute my program
 nnoremap <silent> <Leader>d :Dispatch<CR>
 
-nnoremap <silent> <Leader>e :EvaluateLine<CR>
+" e -- edit {{
+" Edit .bashrc
+nnoremap <silent> <Leader>eb :e! ~/.bashrc<CR>
 
+" Edit .vimrc
+nnoremap <silent> <Leader>ev :e! $MYVIMRC<CR>
+" }}
+
+" Actually use 'nmap' to allow easymotion to pick it up
 nmap <silent> <Leader>f <Leader><Leader>f
 nmap <silent> <Leader>F <Leader><Leader>F
 
@@ -277,31 +328,35 @@ nnoremap <silent> <Leader>G :call search("[0-9]", "b", line("."))<CR>
 " Remove search highlights
 nnoremap <silent> <Leader>h :nohls<CR>
 
-" Set search highlights
-nnoremap <silent> <Leader>H :set hls!<CR>
-
-" Set spaces for indentation
-nnoremap <silent> <Leader>i :call SetIndentation()<CR>
-
-" Easily change leader
-nnoremap <silent> <Leader>l :call SetLeader()<CR>
-
-" Call Make
-nnoremap <silent> <Leader>m :Make<CR>
-
-" Toggle Nerdtree
-nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
-
 inoremap <silent> <C-N> <C-x><C-o>
 
-" Toggle Tagbar
-nnoremap <silent> <Leader>t :TagbarToggle<CR>
+" q -- plugins (no mnemonic, just easy to reach) {{
+" Toggle Nerdtree
+nnoremap <silent> <Leader>qn :NERDTreeToggle<CR>
 
-" Edit .vimrc
-nnoremap <silent> <Leader>v :e! $MYVIMRC<CR>
+" Toggle Tagbar
+nnoremap <silent> <Leader>qt :TagbarToggle<CR>
+" }}
+
+" u -- utilities {{
+nnoremap <silent> <Leader>ue :EvaluateLine<CR>
+" }}
 
 " Swap buffer
-nnoremap <silent> <Leader>x   :b#<CR>
+nnoremap <silent> <Leader>x :b#<CR>
+
+" z -- for settings {{
+
+" Set search highlights
+nnoremap <silent> <Leader>zh :set hls!<CR>
+
+" Set spaces for indentation
+nnoremap <silent> <Leader>zi :call SetIndentation()<CR>
+
+" Easily change leader
+nnoremap <silent> <Leader>zl :call SetLeader()<CR>
+
+" }}
 
 " Other mappings
 " --------------
@@ -310,7 +365,7 @@ nnoremap <silent> <Leader>x   :b#<CR>
 nnoremap <space> <C-f>
 
 " Insert a single character without entering insert mode.
-nnoremap  <silent> <Leader><TAB> :exe "normal i".nr2char(getchar())<CR>
+nnoremap  <silent> <Leader><TAB> :exe "normal! i".nr2char(getchar())<CR>
 
 " Use arrow keys for something more useful
 nnoremap <silent> <Left>     :prev<CR>
@@ -505,5 +560,5 @@ endif
 
 let g:vimrc_loaded = 1
 
-" vim:fdm=marker:fmr={{,}}:fcl=all:fdl=0:ts=2:sw=2:sts=2:
+" vim:fen:fdm=marker:fmr={{,}}:fcl=all:fdl=0::ts=2:sw=2:sts=2:
 
