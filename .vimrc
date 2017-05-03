@@ -20,33 +20,6 @@ endif
 
 let mapleader = ";"
 
-" Make some buttons more feasible on scandinavian keyboards
-" n - normal mode, x - visual mode, o - operator pending mode
-" c - command line mode
-
-" å
-nmap å [
-xmap å [
-omap å [
-cmap å [
-" Å
-nmap Å ]
-xmap Å ]
-omap Å ]
-cmap Å ]
-" æ
-nmap ææ ``
-nmap æ `
-xmap æ `
-omap æ `
-cmap æ `
-" Æ
-nmap ÆÆ ''
-nmap Æ '
-xmap Æ '
-omap Æ '
-cmap Æ '
-
 " }}
 
 " -----------------------------------------------------------------------------
