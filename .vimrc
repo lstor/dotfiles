@@ -83,7 +83,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " vim-scripts repos
-Plugin 'FuzzyFinder'
 Plugin 'HTML-AutoCloseTag'
 Plugin 'L9'
 Plugin 'bufexplorer.zip'
