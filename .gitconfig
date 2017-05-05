@@ -8,6 +8,8 @@
 	default = simple
 [credential]
 	helper = cache --timeout=28800
+[rebase]
+	autosquash = true
 [alias]
 	; Trivial convenience shortcuts
 	br = branch
