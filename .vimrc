@@ -11,13 +11,9 @@
 
 set nocompatible " not really needed, but just in case we use ancient Vim
 
-" Latin1_Keys: {{
-if has("win32")
-  scriptencoding latin1
-endif
-
-let mapleader = ";"
-
+" Leader: {{
+let mapleader = ","
+nnoremap <C-,> ,
 " }}
 
 " -----------------------------------------------------------------------------
@@ -29,6 +25,8 @@ setl fileencoding=utf-8
 setl fileencodings=utf-8,latin1,default
 
 " }}
+
+" -----------------------------------------------------------------------------
 
 " Vundle: {{
 filetype off
