@@ -11,28 +11,51 @@
 [rebase]
 	autosquash = true
 [alias]
-	; Trivial convenience shortcuts
-	br = branch
-	ci = commit
-	co = checkout
-	ri = rebase --interactive
-	st = status
-	unstage = reset HEAD
+	; Common operations
+	; -----------------
 
-	; 'Squash unpushed'
+	; (alias) alias:    list aliases
+	alias = "!grep '^\t; (alias)' ~/.gitconfig | sed -e 's/^.*; (alias) //' | sort"
+	; (alias) br:       branch
+	br = branch
+	; (alias) ci:       commit
+	ci = commit
+	; (alias) co:       checkout
+	co = checkout
+	; (alias) ri:       rebase interactive
+	ri = rebase --interactive
+	; (alias) st:       status
+	st = status
+	; (alias) unstage:  reset staged files  (undo 'git add')
+	unstage = reset HEAD
+	; (alias) undo:     reset to pre-commit (undo 'git commit')
+	undo = reset --soft HEAD^
+	; (alias) squ:      squash unpushed
 	squ = rebase --interactive origin/HEAD
+
+	; Log convenience
+	; ---------------
+
+	; (alias) lc:       latest commits -- details about unpushed commits
 	lc = log ORIG_HEAD.. --stat --no-merges
-	; Nice logging
+	; (alias) ll:       log
 	ll = log --color --graph --pretty=format:\"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset\"
-	; Feat. convenience
+	; (alias) last:     log of last 10
 	last = !git ll -n 10
+	; (alias) unp:      log of unpushed (to origin)
 	unp = !git ll origin/HEAD..
 
-	; Query helpers
+	; Inspections
+	; -----------
+
+	; (alias) whois:    find a committer
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+	; (alias) whatis:   inspect refspec
 	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
-	; Find commits that start with <pattern>
+	; (alias) abbr:     list commits abbreviated with <pattern>
 	abbr = "!sh -c 'git rev-list --all | grep ^$1 | while read commit; do git --no-pager log -n1 --pretty=format:\"%H %ci %an %s%n\" $commit; done' -"
 
-	; Use diff-so-fancy
+	; (alias) dif:      diff with diff-so-fancy
 	dif = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+
+; vim: noexpandtab:tw=8:sw=8:
