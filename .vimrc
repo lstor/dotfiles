@@ -337,8 +337,6 @@ nnoremap <silent> <Leader>G :call search("[0-9]", "b", line("."))<CR>
 " Remove search highlights
 nnoremap <silent> <Leader>h :nohls<CR>
 
-inoremap <silent> <C-N> <C-x><C-o>
-
 " q -- plugins (no mnemonic, just easy to reach) {{
 " Toggle Nerdtree
 nnoremap <silent> <Leader>qn :NERDTreeToggle<CR>
@@ -451,10 +449,6 @@ augroup end
 " -----------------------------------------------------------------------------
 
 " Commands: {{
-" Use 'Calc' to perform calculation using python
-command! -nargs=+ Calc :py print <args>
-command! -nargs=1 UioEdit :e scp://larsstor@login.ifi.uio.no//uio/arkimedes/s27/larsstor/<args>
-command! -nargs=1 ObEdit  :e scp://lstor@lstor.openbastille.org//usr/home/lstor/<args>
 command! -nargs=0 ResetWindowSize :set lines=25 columns=108
 command! -nargs=0 EvaluateLine :call EvaluateLine()
 " }}
