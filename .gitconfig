@@ -58,4 +58,4 @@
 	; (alias) dif:      diff with diff-so-fancy
 	dif = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 
-; vim: noexpandtab:tw=8:sw=8:
+; vim: noexpandtab
