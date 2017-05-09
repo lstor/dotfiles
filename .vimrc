@@ -13,7 +13,7 @@ set nocompatible " not really needed, but just in case we use ancient Vim
 
 " Leader: {{
 let mapleader = ","
-nnoremap <C-,> ,
+nnoremap \ ,
 " }}
 
 " -----------------------------------------------------------------------------
