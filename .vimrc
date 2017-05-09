@@ -527,8 +527,8 @@ if has("gui_running")
   set mousehide
 
   if has("win32")
-      set guifont=Consolas:h14:cANSI
-      set guifont=DejaVu_Sans_Mono_for_Powerline:h12:cANSI
+    set guifont=Consolas:h14:cANSI
+    set guifont=DejaVu_Sans_Mono_for_Powerline:h12:cANSI
   else
     set guifont=Inconsolata:h15
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h15
