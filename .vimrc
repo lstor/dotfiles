@@ -191,7 +191,7 @@ set tildeop                     " make ~ behave like an operator
 set notimeout                   " combined with 'set ttimeout', don't make
 set ttimeout                    " mapped keys time out.
 set ttyfast                     " yeah, no, the 80s are over.
-set virtualedit=block,onemore   " allow virtual edits in these cases
+set virtualedit=block           " allow virtual edits in these cases
 set visualbell                  " blink on error instead of beeping
 set wildmenu                    " command line completion with menu
 set wildmode=list:longest,full  " first try to list the matches, then show menu
