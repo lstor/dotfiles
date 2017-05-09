@@ -320,6 +320,15 @@ nnoremap <silent> <Leader>d :Dispatch<CR>
 " Edit .bashrc
 nnoremap <silent> <Leader>eb :e! ~/.bashrc<CR>
 
+" Edit .gitconfig
+nnoremap <silent> <Leader>eg :e! ~/.gitconfig<CR>
+
+" Edit .ssh/config
+nnoremap <silent> <Leader>es :e! ~/.ssh/config<CR>
+
+" Edit .tmux.conf
+nnoremap <silent> <Leader>et :e! ~/.tmux.conf<CR>
+
 " Edit .vimrc
 nnoremap <silent> <Leader>ev :e! $MYVIMRC<CR>
 " }}
