@@ -54,6 +54,8 @@
 	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
 	; (alias) abbr:     list commits abbreviated with <pattern>
 	abbr = "!sh -c 'git rev-list --all | grep ^$1 | while read commit; do git --no-pager log -n1 --pretty=format:\"%H %ci %an %s%n\" $commit; done' -"
+	; (alias) root:	    show root folder of repo
+	root = rev-parse --show-toplevel
 
 	; (alias) dif:      diff with diff-so-fancy
 	dif = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
