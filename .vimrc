@@ -336,6 +336,7 @@ nnoremap <silent> <Leader>ev :e! $MYVIMRC<CR>
 " }}
 
 " Actually use 'nmap' to allow easymotion to pick it up
+" (Greetings to Fyodor)
 nmap <silent> <Leader>f <Leader><Leader>f
 nmap <silent> <Leader>F <Leader><Leader>F
 
