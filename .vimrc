@@ -340,11 +340,21 @@ nnoremap <silent> <Leader>ev :e! $MYVIMRC<CR>
 nmap <silent> <Leader>f <Leader><Leader>f
 nmap <silent> <Leader>F <Leader><Leader>F
 
+
+" g -- Golang {{
+nnoremap <silent> <Leader>gd :GoDoc<CR>
+nnoremap <silent> <Leader>gi :GoImports<CR>
+nnoremap <silent> <Leader>gl :GoLint<CR>
+nnoremap <silent> <Leader>gt :GoTest<CR>
+nnoremap <silent> <Leader>gv :GoVet<CR>
+" }}
+
+
 " Find next digit on this line
-nnoremap <silent> <Leader>g :call search("[0-9]", "",  line("."))<CR>
+" nnoremap <silent> <Leader>g :call search("[0-9]", "",  line("."))<CR>
 
 " Find previous digit on this line
-nnoremap <silent> <Leader>G :call search("[0-9]", "b", line("."))<CR>
+" nnoremap <silent> <Leader>G :call search("[0-9]", "b", line("."))<CR>
 
 " Remove search highlights
 nnoremap <silent> <Leader>h :nohls<CR>
