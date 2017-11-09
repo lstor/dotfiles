@@ -3,7 +3,7 @@
 "
 " Note: If you get an error message about swapfiles or backup files, make sure
 " the directories ~/.vim/backup and ~/.vim/tmp exist. See set directory and set
-" backupdir. The setup.py script bundles with vimfiles-lstor will setup the
+" backupdir. The setup.py script bundled with vimfiles-lstor will setup the
 " directories automatically.
 
 " Issues: If you have any problems or issues, please report them at the issue
@@ -19,8 +19,8 @@ nnoremap \ ,
 " -----------------------------------------------------------------------------
 
 " Utf-8 from here on out {{
+set encoding=utf-8
 scriptencoding utf8
-set enc=utf-8
 setl fileencoding=utf-8
 setl fileencodings=utf-8,latin1,default
 
