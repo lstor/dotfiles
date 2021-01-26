@@ -1,5 +1,5 @@
 [user]
-	email = lars@lstor.me
+	email = lstor@users.noreply.github.com
 	name = lstor
 [core]
 	editor = vim -f '+startinsert'
