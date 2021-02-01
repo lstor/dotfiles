@@ -4,12 +4,16 @@
 [core]
 	editor = vim -f '+startinsert'
 	autocrlf = false
-[push]
-	default = simple
 [credential]
 	helper = cache --timeout=28800
+[diff]
+	colorMoved = zebra
+[merge]
+	ff = only
 [rebase]
 	autosquash = true
+[push]
+	default = simple
 [alias]
 	; Common operations
 	; -----------------
