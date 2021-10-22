@@ -33,7 +33,7 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-export PATH=$PATH:~/bin
+export PATH=$PATH:/usr/local/bin:~/bin
 export GOPATH=$HOME/src/go
 #
 # }}
