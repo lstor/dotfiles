@@ -12,6 +12,8 @@
 	ff = only
 [rebase]
 	autosquash = true
+[pull]
+	ff = only
 [push]
 	default = simple
 [alias]
